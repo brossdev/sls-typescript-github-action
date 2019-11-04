@@ -1,4 +1,4 @@
-name: Develop CI/CD
+name: News Api Dev CI/CD
 
 on:
   push:
@@ -19,6 +19,8 @@ jobs:
           node-version: 12.x
       - name: install dependencies
         run: yarn install
+      - name: cd into services/news
+        run: cd services/news
       - name: serverless deploy
         run: npx serverless deploy --stage dev
         env:
