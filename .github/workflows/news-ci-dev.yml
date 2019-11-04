@@ -19,10 +19,10 @@ jobs:
           node-version: 12.x
       - name: install dependencies
         run: yarn install
-      - name: cd into services/news
-        run: cd services/news
       - name: serverless deploy
-        run: npx serverless deploy --stage dev
+        run: |
+        cd services/news
+        npx serverless deploy --stage dev
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
