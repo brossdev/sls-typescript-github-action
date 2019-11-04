@@ -13,8 +13,8 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: handler.graphqlHandler
     events:
       - http:
           method: get
-          path: hello
+          path: graphql
