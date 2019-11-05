@@ -1,18 +1,18 @@
 service:
-  name: news-api-{self.provider.stage}
+  name: news-api-${self:custom.stage}
 
 custom:
-# Our stage is based on what is passed in when running serverless
-# commands. Or fallsback to what we have set in the provider section.
-stage: ${opt:stage, self:provider.stage}
+  # Our stage is based on what is passed in when running serverless
+  # commands. Or fallsback to what we have set in the provider section.
+  stage: ${opt:stage, self:provider.stage}
 
 plugins:
   - serverless-webpack
 provider:
-  name: ${file(../../serverless.common.yml):provider-name}
-  runtime: ${file(../../serverless.common.yml):runtime}
+  name: aws
+  runtime: nodejs10.x
   stage: dev
-  region: ${file(../../serverless.common.yml):region}
+  region: eu-west-1
 
 functions:
   news:
